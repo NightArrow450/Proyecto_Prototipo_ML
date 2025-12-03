@@ -25,7 +25,13 @@ st.sidebar.header("📋 Ingrese los datos del cliente")
 
 edad = st.sidebar.number_input("Edad del cliente", min_value=18, max_value=100, value=30)
 anios_dir = st.sidebar.number_input("Años viviendo en la dirección", min_value=0, max_value=80, value=5)
-gasto_auto = st.sidebar.number_input("Gasto en auto (mensual)", min_value=0, max_value=500, value=50)
+gasto_auto = st.sidebar.number_input(
+    "Gasto en auto (mensual)",
+    min_value=0.0,
+    max_value=500.0,
+    value=50.0,
+    step=0.1
+)
 anios_empleo = st.sidebar.number_input("Años de empleo", min_value=0, max_value=60, value=3)
 anios_residen = st.sidebar.number_input("Años de residencia", min_value=0, max_value=80, value=5)
 
