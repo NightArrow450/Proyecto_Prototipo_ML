@@ -2,12 +2,6 @@ import streamlit as st
 import pandas as pd
 import pickle
 
-try:
-    dataset = pd.read_csv("dataset_segmentado.csv")
-except:
-    st.error("❌ No se encontró 'dataset_segmentado.csv'. Coloque este archivo junto al app.")
-    st.stop()
-
 st.set_page_config(page_title="Predicción de Ingresos", layout="centered")
 st.title("💰 Predicción de Ingresos Estimados")
 
@@ -35,6 +29,12 @@ gasto_auto = st.sidebar.number_input("Gasto en auto (mensual)", min_value=0, max
 anios_empleo = st.sidebar.number_input("Años de empleo", min_value=0, max_value=60, value=3)
 anios_residen = st.sidebar.number_input("Años de residencia", min_value=0, max_value=80, value=5)
 
+try:
+    dataset = pd.read_csv("dataset_segmentado.csv")
+except:
+    st.error("❌ No se encontró 'dataset_segmentado.csv'. Coloque este archivo junto al app.")
+    st.stop()
+    
 # Botón de predicción
 if st.button("🔍 Predecir ingreso"):
     entrada = pd.DataFrame({
