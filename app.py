@@ -2,6 +2,12 @@ import streamlit as st
 import pandas as pd
 import pickle
 
+try:
+    dataset = pd.read_csv("dataset_segmentado.csv")
+except:
+    st.error("❌ No se encontró 'dataset_segmentado.csv'. Coloque este archivo junto al app.")
+    st.stop()
+
 st.set_page_config(page_title="Predicción de Ingresos", layout="centered")
 st.title("💰 Predicción de Ingresos Estimados")
 
